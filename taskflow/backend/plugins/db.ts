@@ -2,7 +2,7 @@
 import fp from "fastify-plugin";
 import { Database } from "bun:sqlite";
 
-const db = new Database("taskflow.sqlite");
+const db = new Database(process.env.DB_PATH ?? "taskflow.sqlite");
 
 db.run(`
   CREATE TABLE IF NOT EXISTS users (
